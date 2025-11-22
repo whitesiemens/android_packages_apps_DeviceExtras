@@ -17,6 +17,8 @@
 */
 package org.lineageos.settings.device.DeviceExtras;
 
+import org.lineageos.settings.device.DeviceExtras.NDot.NDotFontApplier;
+
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import androidx.preference.PreferenceFragment;
@@ -27,6 +29,12 @@ import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 public class DeviceExtrasActivity extends CollapsingToolbarBaseActivity {
 
     private DeviceExtras mDeviceExtrasFragment;
+    
+    @Override
+    public void onResume() {
+        super.onResume();
+        NDotFontApplier.apply(getActivity());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -19,6 +19,11 @@
     <!-- Device Extras -->
     <string name="device_title">Device Extras</string>
     <string name="device_summary">Adjust device specific settings</string>
+    
+    <!-- Appearance -->
+    <string name="appearance_title">Appearance</string>
+    <string name="use_ndot_titles_title">NDot titles</string>
+    <string name="use_ndot_titles_summary">Use NDot font for Settings titles</string>
 
      <!-- USB -->
     <string name="usb_title">USB</string>

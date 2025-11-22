@@ -18,16 +18,29 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:settings="http://schemas.android.com/apk/res/org.lineageos.settings.device.DeviceExtras"
 	android.title="@string/device_title">
+	
+	  <PreferenceCategory
+	      android:key="appearance"
+	      android:title="@string/appearance_title">
+	      
+	      <SwitchPreferenceCompat
+	          android:key="use_ndot_titles"
+	          android:icon="@drawable/ic_ndot"
+	          android:title="@string/use_ndot_titles_title"
+	          android:summary="@string/use_ndot_titles_summary" />
+	          
+	  </PreferenceCategory>
 
     <PreferenceCategory
         android:key="usb"
         android:title="@string/usb_title">
         
-    <SwitchPreferenceCompat
+        <SwitchPreferenceCompat
             android:key="otg"
             android:icon="@drawable/ic_otg_mode"
             android:title="@string/otg_mode_title"
             android:summary="@string/otg_mode_summary" />
+            
     </PreferenceCategory>
 
 </PreferenceScreen>

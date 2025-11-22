@@ -35,6 +35,8 @@ import org.lineageos.settings.device.DeviceExtras.R;
 import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 
 public class DeviceExtras extends SettingsBasePreferenceFragment {
+  
+    public static final String ACTION_UPDATE_FONT = "deviceextras.action.UPDATE_FONT";
     public static final String KEY_OTG_SWITCH = "otg";
 
     private static TwoStatePreference mOTGModeSwitch;
@@ -44,6 +46,18 @@ public class DeviceExtras extends SettingsBasePreferenceFragment {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         addPreferencesFromResource(R.xml.main);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+        
+        // NDot
+        SwitchPreferenceCompat dotPref = findPreference("use_ndot_titles");
+        if (dotPref != null) {
+            dotPref.setOnPreferenceChangeListener((pref, newVal) -> {
+                boolean enabled = (Boolean) newVal;
+                Intent intent = new Intent(ACTION_UPDATE_FONT);
+                intent.putExtra("enabled", enabled);
+                getContext().sendBroadcast(intent);
+                return true;
+            });
+        }
 
         // OTG
         mOTGModeSwitch = (TwoStatePreference) findPreference(KEY_OTG_SWITCH);
